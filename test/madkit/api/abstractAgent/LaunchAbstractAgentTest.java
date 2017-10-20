@@ -127,6 +127,7 @@ public class LaunchAbstractAgentTest extends JunitMadkit {
 
     @Test
     public void nullArgs() {
+	addMadkitArgs(LevelOption.agentLogLevel.toString(), "OFF");
 	launchTest(new AbstractAgent() {
 
 	    protected void activate() {
@@ -222,7 +223,7 @@ public class LaunchAbstractAgentTest extends JunitMadkit {
 
     @Test
     public void massLaunch() {
-	addMadkitArgs("--" + LevelOption.agentLogLevel, "OFF");
+	addMadkitArgs(LevelOption.agentLogLevel.toString(), "OFF");
 	launchTest(new AbstractAgent() {
 
 	    int number = 1000;
@@ -246,7 +247,7 @@ public class LaunchAbstractAgentTest extends JunitMadkit {
 
     @Test
     public void massLaunchWithGUI() {
-	addMadkitArgs("--" + LevelOption.agentLogLevel, "OFF");
+	addMadkitArgs(LevelOption.agentLogLevel.toString(), "OFF");
 	launchTest(new AbstractAgent() {
 
 	    int number = 10;
@@ -286,7 +287,6 @@ public class LaunchAbstractAgentTest extends JunitMadkit {
 
     @Test
     public void returnAgentCrash() {
-	addMadkitArgs("--kernelLogLevel", "ALL");
 	launchTest(new AbstractAgent() {
 
 	    protected void activate() {
@@ -298,7 +298,6 @@ public class LaunchAbstractAgentTest extends JunitMadkit {
 
     @Test
     public void SelfLaunching() {
-	addMadkitArgs("--kernelLogLevel", "ALL");
 	launchTest(new AbstractAgent() {
 
 	    protected void activate() {
@@ -312,6 +311,7 @@ public class LaunchAbstractAgentTest extends JunitMadkit {
 
     @Test
     public void chainLaunching() {
+	addMadkitArgs(LevelOption.agentLogLevel.toString(), "OFF");
 	launchTest(new AbstractAgent() {
 
 	    protected void activate() {
